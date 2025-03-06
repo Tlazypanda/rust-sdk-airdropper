@@ -1,0 +1,18 @@
+[package]
+name = "aptos-airdropper"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.71"
+clap = { version = "4.3.0", features = ["derive"] }
+csv = "1.2.2"
+hex = "0.4.3"
+rand = "0.8.5"
+tokio = { version = "1.28.2", features = ["full"] }
+url = "2.4.0"
+aptos-sdk = { git = "https://github.com/aptos-labs/aptos-core", branch = "devnet" }
+ 
+[patch.crates-io]
+merlin = { git = "https://github.com/aptos-labs/merlin" }
+x25519-dalek = { git = "https://github.com/aptos-labs/x25519-dalek", branch = "zeroize_v1" }
