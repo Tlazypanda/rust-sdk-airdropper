@@ -20,11 +20,11 @@ struct Args {
     interactive_mode: bool,
 
     /// Path to CSV file with recipient addresses and amounts
-    #[clap(short, long, required_if_eq("interactive_mode", "false"))]
+    #[clap(short, long)]
     csv_file: Option<PathBuf>,
 
     /// Private key for sender (hex encoded)
-    #[clap(short, long, required_if_eq("interactive_mode", "false"))]
+    #[clap(short, long)]
     private_key: Option<String>,
 
     /// Network to use (devnet, testnet, mainnet)
@@ -277,7 +277,7 @@ async fn interactive_mode() -> Result<AirdropUtils, Error> {
     let network_selected: Result<&str, InquireError> =
         Select::new("Select Network?", network_options).prompt();
     let network = network_selected.unwrap_or_else(|e| {
-        eprintln!("Failed to select a network. Defaulting to 'mainnet'.");
+        eprintln!("Failed to select a network. Defaulting to 'devnet'.");
         "devnet"
     });
 
