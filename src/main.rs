@@ -272,6 +272,8 @@ async fn process_transfer(
     }
 }
 
+// TODO : Improve reusability of code in interactive_mode() and argument_mode()
+// TODO : Implement interactive mode to all cli arguments
 async fn interactive_mode() -> Result<AirdropUtils, Error> {
     let network_options: Vec<&str> = vec!["mainnet", "devnet", "testnet"];
     let network_selected: Result<&str, InquireError> =
